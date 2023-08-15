@@ -1,34 +1,11 @@
 Projeto Api-Flash
 
+Autor : Itallo Minatti
+
 O projeto possui o front-end e o back-end no mesmo projeto
 
-Foi feito com Node.js, React, Tailwindcss, Python, Docker e PostgreSQL
+Foi feito com Python, Docker e PostgreSQL, pytest, Selenium e fastapi
 
-Documentações :
-
-    Node :
-
-        https://nodejs.org/en/docs/
-
-    React :
-
-        https://reactjs.org/docs/getting-started.
-
-    Tailwindcss :
-
-        https://v2.tailwindcss.com/docs
-
-    Python :
-    
-        https://www.python.org/doc/
-
-    Docker :
-
-        https://docs.docker.com/
-
-    PostgreSQL :
-
-        https://www.postgresql.org/docs/
 
 
 A versão do python está na 3.9:
