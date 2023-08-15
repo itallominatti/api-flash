@@ -1,0 +1,27 @@
+image: python:3.9.0
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Deploy to prod
+          script:
+            - export IMAGE_NAME='api-flash'
+            - export TAG='latest'
+            - docker build -t $IMAGE_NAME:$TAG . 
+            - pipe: atlassian/aws-ecr-push-image:1.6.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                IMAGE_NAME: 'api-flash'
+                TAGS: $TAG
+            - pipe: atlassian/aws-ecs-deploy:1.6.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                CLUSTER_NAME: 'propig-prod'
+                SERVICE_NAME: 'api-flash'
+                TASK_DEFINITION: 'api-flash-prod.json'
+                FORCE_NEW_DEPLOYMENT: 'true'

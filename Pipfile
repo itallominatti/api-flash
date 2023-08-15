@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+fastapi = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+pandas = "*"
+psycopg2-binary = "*"
+schedule = "*"
+tqdm = "*"
+python-dotenv = "*"
+pydantic = "==1.10.1"
+pytest = "*"
+sourcery = "*"
+responses = "*"
+pytest-check = "*"
+selenium = "==4.0.0"
+
+[dev-packages]
+pip-audit = "*"
+
+[requires]
+python_version = "3.9"
+
+[scripts]
+exec_server = "python exec.py"
